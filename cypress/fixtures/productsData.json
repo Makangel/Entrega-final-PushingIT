@@ -1,11 +1,11 @@
 {
     "WhitePants":{
         "name" : "White Pants",
-        "price" : "20"
+        "price" : 20
     },
 
     "RedCap":{
         "name" : "Red Cap",
-        "price" : "10"
+        "price" : 10
     }
 }

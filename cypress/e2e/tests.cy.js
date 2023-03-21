@@ -48,7 +48,8 @@ describe("empty spec", () => {
     shoppingCartPage.verificarNombreProducto(productsData.RedCap.name);
     shoppingCartPage.verificarPrecioProducto(productsData.RedCap.name, productsData.RedCap.price);
 
-    cy.xpath("//button[contains(text(),'Show total price)]").click();
-
+    cy.xpath("//button[contains(text(),'Show total price')]").click();
+    let auxiliar = (productsData.RedCap.price + productsData.WhitePants.price);
+    cy.contains(auxiliar).should("have.text",auxiliar);
   });
 });
