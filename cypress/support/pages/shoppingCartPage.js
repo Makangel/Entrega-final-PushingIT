@@ -5,7 +5,7 @@ otro unico metodo para verificar el precio y debe relacionar el precio al produc
 */
 
 verificarNombreProducto(producto){
-    cy.xpath(`//p[contains(text(),"${producto}")]`).should("exist");
+    return cy.xpath(`//p[contains(text(),"${producto}")]`);
 }
 
 verificarPrecioProducto(producto,precio){
@@ -13,5 +13,13 @@ verificarPrecioProducto(producto,precio){
     //following-sibling::p[@name="${precio}"]`)
     .should("exist");
 }
+
+verifyTotalPrice(total){
+    return cy.contains(total);
+};
+
+clickShowTotalPrice(){
+    cy.xpath("//button[contains(text(),'Show total price')]").click();
+};
 
 }

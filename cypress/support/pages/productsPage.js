@@ -1,5 +1,4 @@
 export class ProductsPage {
-
   /*- La clase 'productsPage' debe tener un único método que agregue los productos e indicar
 el producto a agregar como parámetro. XPATH*/
   agregarProducto(producto) {
@@ -8,5 +7,9 @@ el producto a agregar como parámetro. XPATH*/
         //following-sibling::button[contains(text(),"Add to cart")]`
     ).click();
     cy.xpath("//button[contains(text(),'Close')]").click();
+  }
+
+  goToShoppingCart() {
+    cy.xpath("//button[contains(text(),'Go to shopping cart')]").click();
   }
 }

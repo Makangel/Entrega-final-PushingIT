@@ -40,16 +40,16 @@ describe("empty spec", () => {
     homePage.ingresarAOnlineShop();
     productsPage.agregarProducto(productsData.WhitePants.name);
     productsPage.agregarProducto(productsData.RedCap.name);
-    cy.xpath("//button[contains(text(),'Go to shopping cart')]").click();
+    productsPage.goToShoppingCart();
     
-    shoppingCartPage.verificarNombreProducto(productsData.WhitePants.name);
+    shoppingCartPage.verificarNombreProducto(productsData.WhitePants.name).should("have.text",producto);
     shoppingCartPage.verificarPrecioProducto(productsData.WhitePants.name,productsData.WhitePants.price);
 
-    shoppingCartPage.verificarNombreProducto(productsData.RedCap.name);
+    shoppingCartPage.verificarNombreProducto(productsData.RedCap.name).should("have.text",producto);
     shoppingCartPage.verificarPrecioProducto(productsData.RedCap.name, productsData.RedCap.price);
 
-    cy.xpath("//button[contains(text(),'Show total price')]").click();
+   shoppingCartPage.clickShowTotalPrice();
     let auxiliar = (productsData.RedCap.price + productsData.WhitePants.price);
-    cy.contains(auxiliar).should("have.text",auxiliar);
+    shoppingCartPage.verifyTotalPrice(auxiliar).should("have.text",auxiliar);
   });
 });
