@@ -42,10 +42,10 @@ describe("empty spec", () => {
     productsPage.agregarProducto(productsData.RedCap.name);
     productsPage.goToShoppingCart();
     
-    shoppingCartPage.verificarNombreProducto(productsData.WhitePants.name).should("have.text",producto);
+    shoppingCartPage.verificarNombreProducto(productsData.WhitePants.name).should("have.text",productsData.WhitePants.name);
     shoppingCartPage.verificarPrecioProducto(productsData.WhitePants.name,productsData.WhitePants.price);
 
-    shoppingCartPage.verificarNombreProducto(productsData.RedCap.name).should("have.text",producto);
+    shoppingCartPage.verificarNombreProducto(productsData.RedCap.name).should("have.text",productsData.RedCap.name);
     shoppingCartPage.verificarPrecioProducto(productsData.RedCap.name, productsData.RedCap.price);
 
    shoppingCartPage.clickShowTotalPrice();
