@@ -105,24 +105,28 @@ describe("Test checkout completo", () => {
     checkOutPage.ingresarTarjeta(checkoutData.card);
     checkOutPage.goToReceipt();
 
-    reciptPage.verifyFullName(checkoutData.name,checkoutData.lastName).should('exist');
-    reciptPage.verifyProduct(productsData.WhitePants.name).should('have.text', productsData.WhitePants.name);
-    reciptPage.verifyProduct(productsData.RedCap.name).should('have.text', productsData.RedCap.name);
-    reciptPage.verifyCard(checkoutData.card).should('have.text', checkoutData.card);
-    reciptPage.verifyTotalPrice(auxiliar).should('exist');
-
-
- 
-
+    reciptPage
+      .verifyFullName(checkoutData.name, checkoutData.lastName)
+      .should("exist");
+    reciptPage
+      .verifyProduct(productsData.WhitePants.name)
+      .should("have.text", productsData.WhitePants.name);
+    reciptPage
+      .verifyProduct(productsData.RedCap.name)
+      .should("have.text", productsData.RedCap.name);
+    reciptPage
+      .verifyCard(checkoutData.card)
+      .should("have.text", checkoutData.card);
+    reciptPage.verifyTotalPrice(auxiliar).should("exist");
   });
 });
 
 after("After: Eliminamos el usuario", () => {
- //elimino
- cy.request({
-  url: `https://pushing-it.onrender.com/api/deleteuser/${username}`,
-  method: "DELETE",
-}).then((response) => {
-  expect(response.status).equal(200);
-});
+  //elimino
+  cy.request({
+    url: `https://pushing-it.onrender.com/api/deleteuser/${username}`,
+    method: "DELETE",
+  }).then((response) => {
+    expect(response.status).equal(200);
+  });
 });
